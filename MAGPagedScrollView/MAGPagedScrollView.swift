@@ -63,6 +63,20 @@ class MAGPagedScrollView: UIScrollView {
     }
 
     
+    func addSubviews(aSubviews: [UIView]) {
+        let width = CGRectGetWidth(frame)
+        let height = CGRectGetHeight(frame)
+
+        var x:CGFloat = 0
+        
+        for view in aSubviews {
+            view.frame = CGRectMake(x, 0.0, width, height)
+            addSubview(view)
+            x += width
+        }
+        
+        contentSize = CGSizeMake(x, height)
+    }
     
     func goNext() {
         self.goToPage(self.pageNumber + 1, animated: true)
@@ -76,7 +90,6 @@ class MAGPagedScrollView: UIScrollView {
         var newFrame = frame
         let newX = frame.size.width * CGFloat(page)
         newFrame.origin = CGPoint(x:newX, y:0.0)
-
         scrollRectToVisible(newFrame, animated: animated)
     }
     
@@ -85,23 +98,41 @@ class MAGPagedScrollView: UIScrollView {
 
         let tr = transition == .Custom ? customTransition : transitionProperties[transition]!
         
-        for view in self.subviews {
+        //Get previous view, current view and next view
+        
+        
+        for view in self.visibleViews() {
             //save tramsform state
-            let oldTransform = view.layer?.transform
-            view.layer?.transform = CATransform3DIdentity
+            let oldTransform = view.layer.transform
+            view.layer.transform = CATransform3DIdentity
             
             let centerDX = (view.frame.origin.x - contentOffset.x) * 100 / CGRectGetWidth(frame)
-            if let oldTransform = oldTransform {
-                view.layer?.transform = oldTransform
-            }
+            view.layer.transform = oldTransform
             
             let angle = centerDX * tr.angleRatio
             let translateX = CGRectGetWidth(frame) * tr.translation.dx * centerDX / 100.0
             let translateY = CGRectGetWidth(frame) * tr.translation.dy * abs(centerDX) / 100.0
             let transform3D = CATransform3DMakeTranslation(translateX, translateY, 0.0)
             
-            view.layer?.transform = CATransform3DRotate(transform3D, angle.degreesToRadians, tr.rotation.x, tr.rotation.y, tr.rotation.z)
+            view.layer.transform = CATransform3DRotate(transform3D, angle.degreesToRadians, tr.rotation.x, tr.rotation.y, tr.rotation.z)
         }
+    }
+    
+    func visibleViews() -> [UIView] {
+        var result = [UIView]()
+        let page = pageNumber
+        if pageNumber > 0 && (pageNumber-1) < subviews.count {
+            result.append(subviews[pageNumber-1] as! UIView)
+        }
+        if pageNumber < subviews.count {
+            result.append(subviews[pageNumber] as! UIView)
+        }
+        if (pageNumber+1) < subviews.count {
+            result.append(subviews[pageNumber+1] as! UIView)
+        }
+        
+        
+        return result
     }
     
     

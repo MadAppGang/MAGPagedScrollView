@@ -24,13 +24,27 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        createView(0)
-        createView(1)
-        createView(2)
-        createView(3)
+        super.viewDidAppear(animated)
+        scrollView.addSubviews([
+            createView(0),
+            createView(1),
+            createView(2),
+            createView(3)
+        ])
     }
     
-    func createView(color: Int) {
+    @IBAction func goToLast(sender: AnyObject) {
+        self.scrollView.goToPage(3, animated: true)
+    }
+    
+    func createView(color: Int) -> UIView {
+        var view = UIView(frame: CGRectMake(0, 0, 100, 100))
+        view.backgroundColor = colors[color]
+        view.layer.cornerRadius = 10.0
+        return view
+    }
+    
+    func createAndAddView(color: Int) {
         let width = CGRectGetWidth(scrollView.frame)
         let height = CGRectGetHeight(scrollView.frame)
         
@@ -42,19 +56,6 @@ class ViewController: UIViewController {
         view.layer.cornerRadius = 10.0
         scrollView.addSubview(view)
         scrollView.contentSize = CGSizeMake(x+width, height)
-//        CGFloat width = CGRectGetWidth(self.scrollView.frame);
-//        CGFloat height = CGRectGetHeight(self.scrollView.frame);
-//        
-//        CGFloat x = self.scrollView.subviews.count * width;
-//        
-//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(x, 0, width, height)];
-//        view.backgroundColor = [UIColor colorWithRed:33/255. green:158/255. blue:238/255. alpha:1.];
-//        
-//        view.layer.cornerRadius = 8.;
-//        
-//        [self.scrollView addSubview:view];
-//        self.scrollView.contentSize = CGSizeMake(x + width, height);
-
     }
 
     override func didReceiveMemoryWarning() {

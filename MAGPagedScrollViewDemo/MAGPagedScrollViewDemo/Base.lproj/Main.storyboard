@@ -33,13 +33,24 @@
                                     <action selector="segmentedViewChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="HTG-UW-CI3"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bqb-OO-j0Q">
+                                <rect key="frame" x="268" y="562" width="67" height="30"/>
+                                <state key="normal" title="Go to last">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToLast:" destination="BYZ-38-t0r" eventType="touchUpInside" id="izR-oT-oB7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="Fbq-UP-4at" secondAttribute="centerX" constant="-0.5" id="6iP-fH-hqF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Bqb-OO-j0Q" secondAttribute="bottom" constant="8" id="Eyl-Sr-Yv9"/>
                             <constraint firstItem="Fbq-UP-4at" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Lcv-0Z-Khy"/>
                             <constraint firstItem="lG1-bb-zui" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Vao-N9-KU7"/>
                             <constraint firstItem="lG1-bb-zui" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="kCv-R2-Eu3"/>
+                            <constraint firstAttribute="centerX" secondItem="Bqb-OO-j0Q" secondAttribute="centerX" constant="-1" id="u30-cO-LJf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lG1-bb-zui" secondAttribute="bottom" constant="30" id="wgd-Da-X8q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lG1-bb-zui" secondAttribute="trailing" constant="20" id="yYn-hd-Gho"/>
                         </constraints>

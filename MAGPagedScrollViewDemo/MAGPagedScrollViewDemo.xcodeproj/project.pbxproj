@@ -14,6 +14,7 @@
 		BD1ED93A1B870ED70035D46C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD1ED9381B870ED70035D46C /* LaunchScreen.xib */; };
 		BD1ED9461B870ED70035D46C /* MAGPagedScrollViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1ED9451B870ED70035D46C /* MAGPagedScrollViewDemoTests.swift */; };
 		BD1ED9511B870F9E0035D46C /* MAGPagedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1ED9501B870F9E0035D46C /* MAGPagedScrollView.swift */; };
+		BD1ED9531B873AAD0035D46C /* MAGPagedReusableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1ED9521B873AAD0035D46C /* MAGPagedReusableScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		BD1ED9441B870ED70035D46C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD1ED9451B870ED70035D46C /* MAGPagedScrollViewDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAGPagedScrollViewDemoTests.swift; sourceTree = "<group>"; };
 		BD1ED9501B870F9E0035D46C /* MAGPagedScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAGPagedScrollView.swift; sourceTree = "<group>"; };
+		BD1ED9521B873AAD0035D46C /* MAGPagedReusableScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAGPagedReusableScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				BD1ED9501B870F9E0035D46C /* MAGPagedScrollView.swift */,
+				BD1ED9521B873AAD0035D46C /* MAGPagedReusableScrollView.swift */,
 			);
 			name = MAGPagedScrollView;
 			path = ../../MAGPagedScrollView;
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1ED9531B873AAD0035D46C /* MAGPagedReusableScrollView.swift in Sources */,
 				BD1ED9321B870ED70035D46C /* ViewController.swift in Sources */,
 				BD1ED9511B870F9E0035D46C /* MAGPagedScrollView.swift in Sources */,
 				BD1ED9301B870ED70035D46C /* AppDelegate.swift in Sources */,
