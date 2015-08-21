@@ -43,7 +43,7 @@ class ViewController2: UIViewController {
     }
 
     @IBAction func goToEnd(sender: AnyObject) {
-        self.scrollView.goToPage(3, animated: true)
+        self.scrollView.goToPage(9, animated: true)
     }
 }
 
@@ -51,24 +51,23 @@ class ViewController2: UIViewController {
 extension ViewController2: MAGPagedReusableScrollViewDataSource {
     
     func scrollView(scrollView: MAGPagedReusableScrollView, viewIndex index: Int) -> UIView {
-        var newView = scrollView.dequeueReusableView(tag: index < 5 ? 1 : 2 )
+        var newView = scrollView.dequeueReusableView(tag: index > 4 ? 1 : 2 )
         if newView == nil {
-            if index < 5 {
+            if index > 4 {
                 newView = UIView(frame: CGRectMake(0, 0, 100, 100))
             } else {
                 let imageView = UIImageView(frame: CGRectMake(0, 0, 100, 100))
                 imageView.contentMode = .ScaleAspectFill
                 newView = imageView
             }
-            newView?.tag = index < 5 ? 1 : 2
+            newView?.tag = index > 4 ? 1 : 2
         }
 
-        if index < 5 {
-            newView?.backgroundColor = colors[ index ]
+        if index > 4 {
+            newView?.backgroundColor = colors[ index-5 ]
         } else {
-            let imageIndex:Int = index - 4
             let imageView = newView as! UIImageView
-            imageView.image = UIImage(named:"photo\(imageIndex).jpg")
+            imageView.image = UIImage(named:"photo\(index).jpg")
         }
         
         return newView!
