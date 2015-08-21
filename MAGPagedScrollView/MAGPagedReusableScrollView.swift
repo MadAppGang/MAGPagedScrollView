@@ -67,6 +67,11 @@ class MAGPagedReusableScrollView: MAGPagedScrollView {
         }
     }
     
+    override func viewsOnScreen() -> [UIView] {
+        return visibleIndexes.sorted{ $0 > $1 }.map{ self.activeViews[$0]! }
+    }
+
+    
     func dequeueReusableView(#tag:Int) -> UIView? {
         for (index, view) in enumerate(dirtyViews) {
             if view.tag == tag {
@@ -94,7 +99,6 @@ class MAGPagedReusableScrollView: MAGPagedScrollView {
             reload()
         }
     }
-//    func willMoveToSuperview(_ newSuperview: UIView?)
     
     //MARK: private data
     private(set) var activeViews:[Int:UIView] = [:]
@@ -127,6 +131,7 @@ class MAGPagedReusableScrollView: MAGPagedScrollView {
     private func makeViewDirty(#index:Int) {
         if let view = activeViews[index] {
             view.removeFromSuperview()
+            view.layer.transform = CATransform3DIdentity
             dirtyViews.append(view)
             activeViews.removeValueForKey(index)
         }
@@ -136,8 +141,6 @@ class MAGPagedReusableScrollView: MAGPagedScrollView {
         
         if let view = dataSource?.scrollView(self, viewIndex: index) {
             view.removeFromSuperview()
-            println("frame \(self.frame)")
-            println("bounds \(self.bounds)")
             let frameI = UIEdgeInsetsInsetRect(frame, contentInset)
             let width = CGRectGetWidth(frameI)
             let height = CGRectGetHeight(frameI)
@@ -147,12 +150,11 @@ class MAGPagedReusableScrollView: MAGPagedScrollView {
             addSubview(view)
             view.layer.transform = CATransform3DIdentity
             activeViews[index] = view
-            println("activeViews \(activeViews)")
         }
     }
     
     private func clearAllViews () {
-        activeViews.values.map{ $0.removeFromSuperview() }
+        for (_ , value) in activeViews { value.removeFromSuperview() }
         activeViews = [:]
         dirtyViews = []
         viewsCount = nil
