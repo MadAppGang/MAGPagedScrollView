@@ -103,7 +103,7 @@ class MAGPagedScrollView: UIScrollView {
         //Get previous view, current view and next view
         
         
-        for view in self.visibleViews() {
+        for view in viewsOnScreen() {
             //save tramsform state
             let oldTransform = view.layer.transform
             view.layer.transform = CATransform3DIdentity
@@ -120,7 +120,7 @@ class MAGPagedScrollView: UIScrollView {
         }
     }
     
-    func visibleViews() -> [UIView] {
+    func viewsOnScreen() -> [UIView] {
         var result = [UIView]()
         let page = pageNumber
         if pageNumber > 0 && (pageNumber-1) < subviews.count {

@@ -156,7 +156,7 @@
         <!--Image Cards (Reusable Views)-->
         <scene sceneID="8s6-ia-eKj">
             <objects>
-                <viewController id="Amg-bP-Epd" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Amg-bP-Epd" customClass="ViewController2" customModule="MAGPagedScrollViewDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4f0-J1-Cvp"/>
                         <viewControllerLayoutGuide type="bottom" id="8x0-WB-Byd"/>
@@ -165,8 +165,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hoa-Wh-gJT" customClass="MAGPagedScrollView" customModule="MAGPagedScrollViewDemo" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hoa-Wh-gJT" customClass="MAGPagedReusableScrollView" customModule="MAGPagedScrollViewDemo" customModuleProvider="target">
                                 <rect key="frame" x="36" y="133" width="528" height="404"/>
+                                <color key="backgroundColor" red="0.29803921570000003" green="0.85882352939999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </scrollView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QUx-XR-orj">
                                 <rect key="frame" x="174" y="72" width="254" height="29"/>
@@ -179,6 +180,7 @@
                                 </segments>
                                 <connections>
                                     <action selector="segmentedViewChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="weT-dK-hFC"/>
+                                    <action selector="styleChanged:" destination="Amg-bP-Epd" eventType="valueChanged" id="mYF-WC-G0m"/>
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPe-cz-xLl">
@@ -187,6 +189,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="goToEnd:" destination="Amg-bP-Epd" eventType="touchUpInside" id="T6P-bQ-TmJ"/>
                                     <action selector="goToLast:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LC7-Jt-9Gu"/>
                                 </connections>
                             </button>
@@ -204,6 +207,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Image Cards (Reusable Views)" id="RYS-sC-206"/>
+                    <connections>
+                        <outlet property="scrollView" destination="Hoa-Wh-gJT" id="9jS-T4-G6p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o0K-2Y-lkw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
