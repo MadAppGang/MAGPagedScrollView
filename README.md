@@ -5,3 +5,11 @@ UIScrollView that works as container for other ViewControllers
 
 ### YouTube:
 [![youtube](http://img.youtube.com/vi/4xZoOypS128/0.jpg)](http://www.youtube.com/watch?v=4xZoOypS128)
+
+
+### Installation
+
+add this line to Podfile:
+
+    pod 'MAGPagedScrollView'
+
