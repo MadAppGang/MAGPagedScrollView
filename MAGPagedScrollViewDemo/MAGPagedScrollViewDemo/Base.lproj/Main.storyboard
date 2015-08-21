@@ -1,11 +1,100 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fu0-wk-nLD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Root View Controller-->
+        <scene sceneID="tTH-ma-ysa">
+            <objects>
+                <tableViewController id="PNm-xq-Vgr" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Nac-OD-hVK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="Img-ZA-Udi">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="fdv-zN-Qfd" style="IBUITableViewCellStyleDefault" id="4zN-Kk-hNc">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4zN-Kk-hNc" id="RDv-6d-9ys">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Color Cards" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fdv-zN-Qfd">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="jP7-V4-BmC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="CDo-Ym-8Sv" style="IBUITableViewCellStyleDefault" id="4wo-J2-PCC">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4wo-J2-PCC" id="dPG-dN-LZe">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Image Cards (Reusable Views)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CDo-Ym-8Sv">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Amg-bP-Epd" kind="show" id="o02-hh-UQJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Hzc-CM-6WA" style="IBUITableViewCellStyleDefault" id="6vp-8s-jdb">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6vp-8s-jdb" id="77y-v4-lpB">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Parallax ViewControllers (Image + Text)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hzc-CM-6WA">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="PNm-xq-Vgr" id="Zfl-RI-Kbd"/>
+                            <outlet property="delegate" destination="PNm-xq-Vgr" id="lxh-TR-Ftd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="7gH-PI-Fy2"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sXg-ru-h7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-347" y="511"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wae-cU-IHv">
+            <objects>
+                <navigationController id="fu0-wk-nLD" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jzg-GT-IPM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PNm-xq-Vgr" kind="relationship" relationship="rootViewController" id="9V9-07-jh1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rgk-NV-ffi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1077" y="511"/>
+        </scene>
+        <!--Color Cards-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MAGPagedScrollViewDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,11 +106,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lG1-bb-zui" customClass="MAGPagedScrollView" customModule="MAGPagedScrollViewDemo" customModuleProvider="target">
-                                <rect key="frame" x="36" y="80" width="528" height="490"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lG1-bb-zui" customClass="MAGPagedScrollView" customModule="MAGPagedScrollViewDemo" customModuleProvider="target">
+                                <rect key="frame" x="36" y="124" width="528" height="436"/>
                             </scrollView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fbq-UP-4at">
-                                <rect key="frame" x="174" y="28" width="254" height="29"/>
+                                <rect key="frame" x="174" y="72" width="254" height="29"/>
                                 <segments>
                                     <segment title="None"/>
                                     <segment title="Slide"/>
@@ -43,7 +132,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="Fbq-UP-4at" secondAttribute="centerX" constant="-0.5" id="6iP-fH-hqF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Bqb-OO-j0Q" secondAttribute="bottom" constant="8" id="Eyl-Sr-Yv9"/>
@@ -51,16 +140,74 @@
                             <constraint firstItem="lG1-bb-zui" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Vao-N9-KU7"/>
                             <constraint firstItem="lG1-bb-zui" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="kCv-R2-Eu3"/>
                             <constraint firstAttribute="centerX" secondItem="Bqb-OO-j0Q" secondAttribute="centerX" constant="-1" id="u30-cO-LJf"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lG1-bb-zui" secondAttribute="bottom" constant="30" id="wgd-Da-X8q"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lG1-bb-zui" secondAttribute="bottom" constant="40" id="wgd-Da-X8q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lG1-bb-zui" secondAttribute="trailing" constant="20" id="yYn-hd-Gho"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Color Cards" id="eXm-BJ-xDc"/>
                     <connections>
                         <outlet property="scrollView" destination="lG1-bb-zui" id="rCY-lc-aYg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="370" y="-141"/>
+        </scene>
+        <!--Image Cards (Reusable Views)-->
+        <scene sceneID="8s6-ia-eKj">
+            <objects>
+                <viewController id="Amg-bP-Epd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4f0-J1-Cvp"/>
+                        <viewControllerLayoutGuide type="bottom" id="8x0-WB-Byd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HVm-Ou-X2a">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hoa-Wh-gJT" customClass="MAGPagedScrollView" customModule="MAGPagedScrollViewDemo" customModuleProvider="target">
+                                <rect key="frame" x="36" y="133" width="528" height="404"/>
+                            </scrollView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QUx-XR-orj">
+                                <rect key="frame" x="174" y="72" width="254" height="29"/>
+                                <segments>
+                                    <segment title="None"/>
+                                    <segment title="Slide"/>
+                                    <segment title="Dive"/>
+                                    <segment title="Roll"/>
+                                    <segment title="Cards"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedViewChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="weT-dK-hFC"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPe-cz-xLl">
+                                <rect key="frame" x="267" y="558" width="67" height="30"/>
+                                <state key="normal" title="Go to last">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToLast:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LC7-Jt-9Gu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hoa-Wh-gJT" secondAttribute="trailing" constant="20" id="2Ba-Gq-CZz"/>
+                            <constraint firstAttribute="centerX" secondItem="QUx-XR-orj" secondAttribute="centerX" constant="-1" id="9fN-Zz-852"/>
+                            <constraint firstItem="Hoa-Wh-gJT" firstAttribute="top" secondItem="QUx-XR-orj" secondAttribute="bottom" constant="33" id="Nwh-O2-1QZ"/>
+                            <constraint firstItem="QUx-XR-orj" firstAttribute="top" secondItem="4f0-J1-Cvp" secondAttribute="bottom" constant="8" id="fK9-RU-41K"/>
+                            <constraint firstItem="8x0-WB-Byd" firstAttribute="top" secondItem="RPe-cz-xLl" secondAttribute="bottom" constant="12" id="fzt-NE-Zgn"/>
+                            <constraint firstItem="RPe-cz-xLl" firstAttribute="top" secondItem="Hoa-Wh-gJT" secondAttribute="bottom" constant="21" id="jTN-El-w7V"/>
+                            <constraint firstAttribute="centerX" secondItem="RPe-cz-xLl" secondAttribute="centerX" constant="-0.5" id="uKs-7H-c9d"/>
+                            <constraint firstItem="Hoa-Wh-gJT" firstAttribute="leading" secondItem="HVm-Ou-X2a" secondAttribute="leadingMargin" constant="20" id="wHI-yv-WC7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Image Cards (Reusable Views)" id="RYS-sC-206"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0K-2Y-lkw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="370" y="517"/>
         </scene>
     </scenes>
 </document>

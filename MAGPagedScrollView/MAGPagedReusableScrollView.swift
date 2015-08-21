@@ -15,11 +15,15 @@ protocol MAGPagedReusableScrollViewDataSource {
 
 class MAGPagedReusableScrollView: MAGPagedScrollView {
     
+    var dataSource:MAGPagedReusableScrollViewDataSource?
+    
     
     
     func reload() {
         
     }
+    
+    private var previousVoisibleCells:[Int] = [];
 }
 
 

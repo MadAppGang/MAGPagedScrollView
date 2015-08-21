@@ -52,6 +52,7 @@ class MAGPagedScrollView: UIScrollView {
         clipsToBounds = false
         showsHorizontalScrollIndicator = false
         showsVerticalScrollIndicator = false
+        
         transitionProperties = [
             .None:  MAGPagedScrollViewTransitionProperties(),
             .Slide: MAGPagedScrollViewTransitionProperties(angleRatio: 0.0, translation: CGVector(dx:0.25,dy:0.25), rotation: Rotation3D()),
@@ -64,8 +65,9 @@ class MAGPagedScrollView: UIScrollView {
 
     
     func addSubviews(aSubviews: [UIView]) {
-        let width = CGRectGetWidth(frame)
-        let height = CGRectGetHeight(frame)
+        let frameI = UIEdgeInsetsInsetRect(frame, contentInset)
+        let width = CGRectGetWidth(frameI)
+        let height = CGRectGetHeight(frameI)
 
         var x:CGFloat = 0
         

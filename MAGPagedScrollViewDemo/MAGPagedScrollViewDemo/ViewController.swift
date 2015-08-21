@@ -25,6 +25,12 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        //alternate way to add subviews
+//        createView(0)
+//        createView(1)
+//        createView(2)
+//        createView(3)
+
         scrollView.addSubviews([
             createView(0),
             createView(1),
