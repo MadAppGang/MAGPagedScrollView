@@ -55,7 +55,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6vp-8s-jdb" id="77y-v4-lpB">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Parallax ViewControllers (Image + Text)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hzc-CM-6WA">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Image cards with UIViewControllers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hzc-CM-6WA">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,6 +63,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="vva-tC-c8p" kind="show" id="DxL-fN-UIt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -213,6 +216,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o0K-2Y-lkw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="370" y="517"/>
+        </scene>
+        <!--View Controller3-->
+        <scene sceneID="VTn-ba-kKi">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="vva-tC-c8p" customClass="ViewController3" customModule="MAGPagedScrollViewDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hvT-aD-quX"/>
+                        <viewControllerLayoutGuide type="bottom" id="iyw-TE-hpw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hff-Q4-TWj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="w0W-py-RBq">
+                                <rect key="frame" x="173" y="72" width="254" height="29"/>
+                                <segments>
+                                    <segment title="None"/>
+                                    <segment title="Slide"/>
+                                    <segment title="Dive"/>
+                                    <segment title="Roll"/>
+                                    <segment title="Cards"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedViewChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="WE9-eX-bKE"/>
+                                    <action selector="styleChanged:" destination="Amg-bP-Epd" eventType="valueChanged" id="2z8-Ly-hAx"/>
+                                    <action selector="styleChanged:" destination="vva-tC-c8p" eventType="valueChanged" id="nTv-wl-dsy"/>
+                                </connections>
+                            </segmentedControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8be-V8-2Nn" customClass="PagedReusableScrollView" customModule="MAGPagedScrollViewDemo" customModuleProvider="target">
+                                <rect key="frame" x="16" y="108" width="568" height="484"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="w0W-py-RBq" secondAttribute="centerX" id="0zh-Nf-SHs"/>
+                            <constraint firstItem="8be-V8-2Nn" firstAttribute="top" secondItem="w0W-py-RBq" secondAttribute="bottom" constant="8" id="13f-Bd-0gj"/>
+                            <constraint firstItem="8be-V8-2Nn" firstAttribute="leading" secondItem="hff-Q4-TWj" secondAttribute="leadingMargin" id="4yJ-22-V22"/>
+                            <constraint firstItem="iyw-TE-hpw" firstAttribute="top" secondItem="8be-V8-2Nn" secondAttribute="bottom" constant="8" id="8Is-aW-b7u"/>
+                            <constraint firstItem="8be-V8-2Nn" firstAttribute="trailing" secondItem="hff-Q4-TWj" secondAttribute="trailingMargin" id="Klv-jh-3vQ"/>
+                            <constraint firstItem="w0W-py-RBq" firstAttribute="top" secondItem="hvT-aD-quX" secondAttribute="bottom" constant="8" id="igp-mf-H20"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="8be-V8-2Nn" id="zAj-tt-TG4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U4H-gp-GOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="370" y="1182"/>
         </scene>
     </scenes>
 </document>

@@ -18,7 +18,7 @@ enum PagedScrollViewTransitionType {
 }
 
 @objc protocol ViewProvider {
-    var view: UIView { get }
+    var view: UIView! { get }
 }
 
 
@@ -170,5 +170,7 @@ extension CGFloat {
 }
 
 extension UIView: ViewProvider {
-    var view: UIView { return self }
+    var view: UIView! { return self }
 }
+
+extension UIViewController: ViewProvider { }
