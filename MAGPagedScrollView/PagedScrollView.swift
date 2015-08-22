@@ -17,6 +17,11 @@ enum PagedScrollViewTransitionType {
     case Custom
 }
 
+@objc protocol ViewProvider {
+    var view: UIView { get }
+}
+
+
 
 class PagedScrollView: UIScrollView {
     
@@ -64,7 +69,7 @@ class PagedScrollView: UIScrollView {
     }
 
     
-    func addSubviews(aSubviews: [UIView]) {
+    func addSubviews(aSubviews: [ViewProvider]) {
         let frameI = UIEdgeInsetsInsetRect(frame, contentInset)
         let width = CGRectGetWidth(frameI)
         let height = CGRectGetHeight(frameI)
@@ -72,8 +77,8 @@ class PagedScrollView: UIScrollView {
         var x:CGFloat = 0
         
         for view in aSubviews {
-            view.frame = CGRectMake(x, 0.0, width, height)
-            addSubview(view)
+            view.view.frame = CGRectMake(x, 0.0, width, height)
+            addSubview(view.view)
             x += width
         }
         
@@ -162,4 +167,8 @@ extension CGFloat {
     var radiansToDegrees : CGFloat {
         return CGFloat(self) / CGFloat(M_PI) * 180.0
     }
+}
+
+extension UIView: ViewProvider {
+    var view: UIView { return self }
 }

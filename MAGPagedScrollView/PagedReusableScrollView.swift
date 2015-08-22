@@ -8,10 +8,8 @@
 
 import UIKit
 
-//@objc protocol MAG
-
 @objc protocol PagedReusableScrollViewDataSource {
-    func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> UIView
+    func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider
     func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int
 }
 
@@ -70,13 +68,13 @@ class PagedReusableScrollView: PagedScrollView {
     }
     
     override func viewsOnScreen() -> [UIView] {
-        return visibleIndexes.sorted{ $0 > $1 }.map{ self.activeViews[$0]! }
+        return visibleIndexes.sorted{ $0 > $1 }.map{ self.activeViews[$0]!.view }
     }
 
     
-    func dequeueReusableView(#tag:Int) -> UIView? {
+    func dequeueReusableView(#tag:Int) -> ViewProvider? {
         for (index, view) in enumerate(dirtyViews) {
-            if view.tag == tag {
+            if view.view.tag == tag {
                 dirtyViews.removeAtIndex(index)
                 return view
             }
@@ -84,9 +82,9 @@ class PagedReusableScrollView: PagedScrollView {
         return nil
     }
     
-    func dequeueReusableView(#viewClass:AnyClass) -> UIView? {
+    func dequeueReusableView(#viewClass:AnyClass) -> ViewProvider? {
         for (index, view) in enumerate(dirtyViews) {
-            if view.isKindOfClass(viewClass) {
+            if view.view.isKindOfClass(viewClass) {
                 dirtyViews.removeAtIndex(index)
                 return view
             }
@@ -103,8 +101,8 @@ class PagedReusableScrollView: PagedScrollView {
     }
     
     //MARK: private data
-    private(set) var activeViews:[Int:UIView] = [:]
-    private var dirtyViews:[UIView] = []
+    private(set) var activeViews:[Int:ViewProvider] = [:]
+    private var dirtyViews:[ViewProvider] = []
     private var viewsCount:Int?
     private var itemSize:CGSize = CGSizeZero
     
@@ -132,8 +130,8 @@ class PagedReusableScrollView: PagedScrollView {
     
     private func makeViewDirty(#index:Int) {
         if let view = activeViews[index] {
-            view.removeFromSuperview()
-            view.layer.transform = CATransform3DIdentity
+            view.view.removeFromSuperview()
+            view.view.layer.transform = CATransform3DIdentity
             dirtyViews.append(view)
             activeViews.removeValueForKey(index)
         }
@@ -142,21 +140,21 @@ class PagedReusableScrollView: PagedScrollView {
     private func addView(#index:Int) {
         
         if let view = dataSource?.scrollView(self, viewIndex: index) {
-            view.removeFromSuperview()
+            view.view.removeFromSuperview()
             let frameI = UIEdgeInsetsInsetRect(frame, contentInset)
             let width = CGRectGetWidth(frameI)
             let height = CGRectGetHeight(frameI)
             var x:CGFloat = CGFloat(index) * width
-            view.frame = CGRectMake(x, 0, width, height)
-            view.clipsToBounds = true
-            addSubview(view)
-            view.layer.transform = CATransform3DIdentity
+            view.view.frame = CGRectMake(x, 0, width, height)
+            view.view.clipsToBounds = true
+            addSubview(view.view)
+            view.view.layer.transform = CATransform3DIdentity
             activeViews[index] = view
         }
     }
     
     private func clearAllViews () {
-        for (_ , value) in activeViews { value.removeFromSuperview() }
+        for (_ , value) in activeViews { value.view.removeFromSuperview() }
         activeViews = [:]
         dirtyViews = []
         viewsCount = nil

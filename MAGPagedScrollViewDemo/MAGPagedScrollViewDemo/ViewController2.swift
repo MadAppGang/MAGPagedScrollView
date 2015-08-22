@@ -50,7 +50,7 @@ class ViewController2: UIViewController {
 
 extension ViewController2: PagedReusableScrollViewDataSource {
     
-    func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> UIView {
+    func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider {
         var newView = scrollView.dequeueReusableView(tag: index > 4 ? 1 : 2 )
         if newView == nil {
             if index > 4 {
@@ -60,11 +60,11 @@ extension ViewController2: PagedReusableScrollViewDataSource {
                 imageView.contentMode = .ScaleAspectFill
                 newView = imageView
             }
-            newView?.tag = index > 4 ? 1 : 2
+            newView?.view.tag = index > 4 ? 1 : 2
         }
 
         if index > 4 {
-            newView?.backgroundColor = colors[ index-5 ]
+            newView?.view.backgroundColor = colors[ index-5 ]
         } else {
             let imageView = newView as! UIImageView
             imageView.image = UIImage(named:"photo\(index).jpg")
