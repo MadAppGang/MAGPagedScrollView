@@ -1,5 +1,5 @@
 //
-//  MAGPagedScrollView.swift
+//  PagedScrollView.swift
 //  MAGPagedScrollViewDemo
 //
 //  Created by Ievgen Rudenko on 21/08/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum MAGPagedScrollViewTransitionType {
+enum PagedScrollViewTransitionType {
     case None
     case Slide
     case Dive
@@ -18,10 +18,10 @@ enum MAGPagedScrollViewTransitionType {
 }
 
 
-class MAGPagedScrollView: UIScrollView {
+class PagedScrollView: UIScrollView {
     
     /// Transition type
-    var transition: MAGPagedScrollViewTransitionType = .None {
+    var transition: PagedScrollViewTransitionType = .None {
         didSet {
             setNeedsLayout()
         }
@@ -33,9 +33,9 @@ class MAGPagedScrollView: UIScrollView {
         return lround(Double(factionalPage))
     }
     /// Custom transition
-    var customTransition = MAGPagedScrollViewTransitionProperties()
+    var customTransition = PagedScrollViewTransitionProperties()
     
-    private var transitionProperties:[MAGPagedScrollViewTransitionType:MAGPagedScrollViewTransitionProperties]!
+    private var transitionProperties:[PagedScrollViewTransitionType:PagedScrollViewTransitionProperties]!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,12 +54,12 @@ class MAGPagedScrollView: UIScrollView {
         showsVerticalScrollIndicator = false
         
         transitionProperties = [
-            .None:  MAGPagedScrollViewTransitionProperties(),
-            .Slide: MAGPagedScrollViewTransitionProperties(angleRatio: 0.0, translation: CGVector(dx:0.25,dy:0.25), rotation: Rotation3D()),
-            .Dive:  MAGPagedScrollViewTransitionProperties(angleRatio: 0.5, translation: CGVector(dx:0.25,dy:0.0), rotation: Rotation3D(x:-1.0,y:0.0,z:0.0)),
-            .Roll:  MAGPagedScrollViewTransitionProperties(angleRatio: 0.5, translation: CGVector(dx:0.25,dy:0.25), rotation: Rotation3D(x:-1.0,y:0.0,z:0.0)),
-            .Cards: MAGPagedScrollViewTransitionProperties(angleRatio: 0.5, translation: CGVector(dx:0.25,dy:0.25), rotation: Rotation3D(x:-1.0,y:-1.0,z:0.0)),
-            .Custom:MAGPagedScrollViewTransitionProperties()
+            .None:  PagedScrollViewTransitionProperties(),
+            .Slide: PagedScrollViewTransitionProperties(angleRatio: 0.0, translation: CGVector(dx:0.25,dy:0.25), rotation: Rotation3D()),
+            .Dive:  PagedScrollViewTransitionProperties(angleRatio: 0.5, translation: CGVector(dx:0.25,dy:0.0), rotation: Rotation3D(x:-1.0,y:0.0,z:0.0)),
+            .Roll:  PagedScrollViewTransitionProperties(angleRatio: 0.5, translation: CGVector(dx:0.25,dy:0.25), rotation: Rotation3D(x:-1.0,y:0.0,z:0.0)),
+            .Cards: PagedScrollViewTransitionProperties(angleRatio: 0.5, translation: CGVector(dx:0.25,dy:0.25), rotation: Rotation3D(x:-1.0,y:-1.0,z:0.0)),
+            .Custom:PagedScrollViewTransitionProperties()
         ]
     }
 
@@ -140,7 +140,7 @@ class MAGPagedScrollView: UIScrollView {
     
 }
 
-struct MAGPagedScrollViewTransitionProperties {
+struct PagedScrollViewTransitionProperties {
     var angleRatio:     CGFloat = 0.0
     var translation:    CGVector = CGVector(dx:0.0, dy:0.0)
     var rotation:       Rotation3D = Rotation3D()

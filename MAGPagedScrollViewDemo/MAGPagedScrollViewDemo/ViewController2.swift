@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController2: UIViewController {
 
-    @IBOutlet weak var scrollView: MAGPagedReusableScrollView!
+    @IBOutlet weak var scrollView: PagedReusableScrollView!
 
     var colors = [
         UIColor.redColor(),
@@ -48,9 +48,9 @@ class ViewController2: UIViewController {
 }
 
 
-extension ViewController2: MAGPagedReusableScrollViewDataSource {
+extension ViewController2: PagedReusableScrollViewDataSource {
     
-    func scrollView(scrollView: MAGPagedReusableScrollView, viewIndex index: Int) -> UIView {
+    func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> UIView {
         var newView = scrollView.dequeueReusableView(tag: index > 4 ? 1 : 2 )
         if newView == nil {
             if index > 4 {
@@ -73,7 +73,7 @@ extension ViewController2: MAGPagedReusableScrollViewDataSource {
         return newView!
     }
     
-    func numberOfViews(forScrollView scrollView: MAGPagedReusableScrollView) -> Int {
+    func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int {
         return 10
     }
     

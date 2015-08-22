@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var scrollView: MAGPagedScrollView!
+    @IBOutlet weak var scrollView: PagedScrollView!
     
     var colors = [
         UIColor.redColor(),

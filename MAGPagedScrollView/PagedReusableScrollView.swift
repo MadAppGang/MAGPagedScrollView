@@ -8,14 +8,16 @@
 
 import UIKit
 
-@objc protocol MAGPagedReusableScrollViewDataSource {
-    func scrollView(scrollView: MAGPagedReusableScrollView, viewIndex index: Int) -> UIView
-    func numberOfViews(forScrollView scrollView: MAGPagedReusableScrollView) -> Int
+//@objc protocol MAG
+
+@objc protocol PagedReusableScrollViewDataSource {
+    func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> UIView
+    func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int
 }
 
-class MAGPagedReusableScrollView: MAGPagedScrollView {
+class PagedReusableScrollView: PagedScrollView {
     
-    @IBOutlet var dataSource:MAGPagedReusableScrollViewDataSource! {
+    @IBOutlet var dataSource:PagedReusableScrollViewDataSource! {
         didSet {
             reload()
         }
