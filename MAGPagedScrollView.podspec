@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MAGPagedScrollView"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "Paged managed scroll view from MadAppGang."
 
   s.description  = <<-DESC
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.author       = { "Ievgen Rudenko" => "i@madappgang.com" }
 
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/MadAppGang/MAGPagedScrollView.git", :tag => "0.0.3" }
+  s.source       = { :git => "https://github.com/MadAppGang/MAGPagedScrollView.git", :tag => "0.0.4" }
   s.source_files = "MAGPagedScrollView", "MAGPagedScrollView/**/*.{swift}"
   s.requires_arc = true
 end
