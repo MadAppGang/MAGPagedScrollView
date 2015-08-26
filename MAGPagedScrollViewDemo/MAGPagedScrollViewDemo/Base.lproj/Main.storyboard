@@ -67,6 +67,23 @@
                                             <segue destination="vva-tC-c8p" kind="show" id="DxL-fN-UIt"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Eo5-lP-BTv" style="IBUITableViewCellStyleDefault" id="to5-vz-TCi">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="to5-vz-TCi" id="jvU-Mf-MrZ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Parallax with UIViewControllers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Eo5-lP-BTv">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="jMD-ka-gdQ" kind="show" id="aNh-A3-Ji6"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -217,6 +234,54 @@
             </objects>
             <point key="canvasLocation" x="370" y="517"/>
         </scene>
+        <!--View Controller4-->
+        <scene sceneID="wXi-3g-7Fs">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="jMD-ka-gdQ" customClass="ViewController4" customModule="MAGPagedScrollViewDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cRI-4v-VjX"/>
+                        <viewControllerLayoutGuide type="bottom" id="vZC-Pu-NOh"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="9hh-xh-hfv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hx5-Rw-RuK" customClass="PagedParallaxScrollView" customModule="MAGPagedScrollViewDemo" customModuleProvider="target">
+                                <rect key="frame" x="40" y="116" width="521" height="474"/>
+                            </scrollView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="atP-Fw-Xn5">
+                                <rect key="frame" x="173" y="72" width="254" height="29"/>
+                                <segments>
+                                    <segment title="None"/>
+                                    <segment title="Slide"/>
+                                    <segment title="Dive"/>
+                                    <segment title="Roll"/>
+                                    <segment title="Cards"/>
+                                </segments>
+                                <connections>
+                                    <action selector="styleChanged:" destination="jMD-ka-gdQ" eventType="valueChanged" id="sag-CF-5ir"/>
+                                    <action selector="transformChanged:" destination="jMD-ka-gdQ" eventType="valueChanged" id="g2J-dZ-OOP"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hx5-Rw-RuK" firstAttribute="top" secondItem="cRI-4v-VjX" secondAttribute="bottom" constant="52" id="DTH-YZ-EGb"/>
+                            <constraint firstItem="hx5-Rw-RuK" firstAttribute="leading" secondItem="9hh-xh-hfv" secondAttribute="leadingMargin" constant="24" id="SY4-oa-tri"/>
+                            <constraint firstAttribute="centerX" secondItem="atP-Fw-Xn5" secondAttribute="centerX" id="TgN-Fp-cPG"/>
+                            <constraint firstItem="vZC-Pu-NOh" firstAttribute="top" secondItem="hx5-Rw-RuK" secondAttribute="bottom" constant="10" id="b1u-5I-7Vo"/>
+                            <constraint firstItem="atP-Fw-Xn5" firstAttribute="top" secondItem="cRI-4v-VjX" secondAttribute="bottom" constant="8" id="pba-ds-VuC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hx5-Rw-RuK" secondAttribute="trailing" constant="23" id="xav-T1-Ocg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="hx5-Rw-RuK" id="qiV-tB-8k0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1A6-1W-3sp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="370" y="1852"/>
+        </scene>
         <!--View Controller3-->
         <scene sceneID="VTn-ba-kKi">
             <objects>
@@ -225,7 +290,7 @@
                         <viewControllerLayoutGuide type="top" id="hvT-aD-quX"/>
                         <viewControllerLayoutGuide type="bottom" id="iyw-TE-hpw"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hff-Q4-TWj">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="hff-Q4-TWj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

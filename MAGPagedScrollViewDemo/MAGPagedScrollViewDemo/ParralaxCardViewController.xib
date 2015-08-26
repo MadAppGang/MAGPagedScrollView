@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ParralaxCardViewController" customModule="MAGPagedScrollViewDemo" customModuleProvider="target">
+            <connections>
+                <outlet property="detailsCentralConstraint" destination="1r5-0Y-MAX" id="4hP-hc-30f"/>
+                <outlet property="imageCentralConstraint" destination="2F0-qE-j1f" id="2n2-OY-caM"/>
+                <outlet property="imageView" destination="aNe-go-LYa" id="mhi-2W-b7U"/>
+                <outlet property="titleTopConstraint" destination="Sy6-u8-6r3" id="hhK-GI-Te7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" tag="1" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="ParallaxViewProxy" customModule="MAGPagedScrollViewDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1c-Gt-BpI">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo0" translatesAutoresizingMaskIntoConstraints="NO" id="aNe-go-LYa">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom label to say some details here Bottom label to say some details here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIt-l6-vGc">
+                    <rect key="frame" x="0.0" y="512" width="600" height="58"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7b7-t0-jPR">
+                    <rect key="frame" x="10" y="8" width="580" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="aNe-go-LYa" firstAttribute="centerX" secondItem="SIt-l6-vGc" secondAttribute="centerX" id="1r5-0Y-MAX"/>
+                <constraint firstAttribute="centerX" secondItem="aNe-go-LYa" secondAttribute="centerX" id="2F0-qE-j1f"/>
+                <constraint firstAttribute="bottom" secondItem="aNe-go-LYa" secondAttribute="bottom" id="H1E-dY-oae"/>
+                <constraint firstItem="7b7-t0-jPR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Iq5-UQ-fdT"/>
+                <constraint firstItem="h1c-Gt-BpI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LEj-Uk-4rM"/>
+                <constraint firstAttribute="trailing" secondItem="h1c-Gt-BpI" secondAttribute="trailing" id="QNn-cE-Inb"/>
+                <constraint firstItem="aNe-go-LYa" firstAttribute="top" secondItem="7b7-t0-jPR" secondAttribute="top" constant="-8" id="Sy6-u8-6r3"/>
+                <constraint firstAttribute="bottom" secondItem="SIt-l6-vGc" secondAttribute="bottom" constant="30" id="W7Q-bc-nNM"/>
+                <constraint firstItem="aNe-go-LYa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YoW-ig-bmJ"/>
+                <constraint firstItem="h1c-Gt-BpI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jUC-1T-9dJ"/>
+                <constraint firstAttribute="bottom" secondItem="h1c-Gt-BpI" secondAttribute="bottom" id="nmb-QO-p1j"/>
+                <constraint firstItem="aNe-go-LYa" firstAttribute="width" secondItem="h1c-Gt-BpI" secondAttribute="width" id="tRt-h6-A0H"/>
+                <constraint firstItem="aNe-go-LYa" firstAttribute="width" secondItem="SIt-l6-vGc" secondAttribute="width" id="vEJ-Xh-LOy"/>
+                <constraint firstAttribute="trailing" secondItem="7b7-t0-jPR" secondAttribute="trailing" constant="10" id="xSP-ko-WDv"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="photo0" width="960" height="640"/>
+    </resources>
+</document>

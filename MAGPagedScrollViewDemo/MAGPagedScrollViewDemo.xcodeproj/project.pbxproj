@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD1C388C1B8D6F20007D9A2F /* ViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C388B1B8D6F20007D9A2F /* ViewController4.swift */; };
+		BD1C388E1B8D82F9007D9A2F /* PagedParallaxScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C388D1B8D82F9007D9A2F /* PagedParallaxScrollView.swift */; };
+		BD1C38911B8D873D007D9A2F /* ParralaxCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C388F1B8D873D007D9A2F /* ParralaxCardViewController.swift */; };
+		BD1C38921B8D873D007D9A2F /* ParralaxCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD1C38901B8D873D007D9A2F /* ParralaxCardViewController.xib */; };
+		BD1C38941B8D959C007D9A2F /* ParallaxViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C38931B8D959C007D9A2F /* ParallaxViewProxy.swift */; };
 		BD1ED9301B870ED70035D46C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1ED92F1B870ED70035D46C /* AppDelegate.swift */; };
 		BD1ED9321B870ED70035D46C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1ED9311B870ED70035D46C /* ViewController.swift */; };
 		BD1ED9351B870ED70035D46C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1ED9331B870ED70035D46C /* Main.storyboard */; };
@@ -32,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD1C388B1B8D6F20007D9A2F /* ViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController4.swift; sourceTree = "<group>"; };
+		BD1C388D1B8D82F9007D9A2F /* PagedParallaxScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedParallaxScrollView.swift; sourceTree = "<group>"; };
+		BD1C388F1B8D873D007D9A2F /* ParralaxCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParralaxCardViewController.swift; sourceTree = "<group>"; };
+		BD1C38901B8D873D007D9A2F /* ParralaxCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParralaxCardViewController.xib; sourceTree = "<group>"; };
+		BD1C38931B8D959C007D9A2F /* ParallaxViewProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxViewProxy.swift; sourceTree = "<group>"; };
 		BD1ED92A1B870ED70035D46C /* MAGPagedScrollViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MAGPagedScrollViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD1ED92E1B870ED70035D46C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD1ED92F1B870ED70035D46C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +110,9 @@
 				BD7A9FFD1B88BB7100953466 /* ViewController3.swift */,
 				BD7A9FFF1B88BBDE00953466 /* SimpleCardViewController.swift */,
 				BD7AA0001B88BBDE00953466 /* SimpleCardViewController.xib */,
+				BD1C388B1B8D6F20007D9A2F /* ViewController4.swift */,
+				BD1C388F1B8D873D007D9A2F /* ParralaxCardViewController.swift */,
+				BD1C38901B8D873D007D9A2F /* ParralaxCardViewController.xib */,
 			);
 			path = MAGPagedScrollViewDemo;
 			sourceTree = "<group>";
@@ -134,6 +147,8 @@
 			children = (
 				BD1ED9501B870F9E0035D46C /* PagedScrollView.swift */,
 				BD1ED9521B873AAD0035D46C /* PagedReusableScrollView.swift */,
+				BD1C388D1B8D82F9007D9A2F /* PagedParallaxScrollView.swift */,
+				BD1C38931B8D959C007D9A2F /* ParallaxViewProxy.swift */,
 			);
 			name = PagedScrollView;
 			path = ../../MAGPagedScrollView;
@@ -221,6 +236,7 @@
 			files = (
 				BD7AA0021B88BBDE00953466 /* SimpleCardViewController.xib in Resources */,
 				BD1ED9351B870ED70035D46C /* Main.storyboard in Resources */,
+				BD1C38921B8D873D007D9A2F /* ParralaxCardViewController.xib in Resources */,
 				BD1ED93A1B870ED70035D46C /* LaunchScreen.xib in Resources */,
 				BD1ED9371B870ED70035D46C /* Images.xcassets in Resources */,
 			);
@@ -240,13 +256,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1C38911B8D873D007D9A2F /* ParralaxCardViewController.swift in Sources */,
 				BDEEA4651B87771000D50545 /* ViewController2.swift in Sources */,
 				BD7AA0011B88BBDE00953466 /* SimpleCardViewController.swift in Sources */,
 				BD1ED9531B873AAD0035D46C /* PagedReusableScrollView.swift in Sources */,
+				BD1C388C1B8D6F20007D9A2F /* ViewController4.swift in Sources */,
 				BD7A9FFE1B88BB7100953466 /* ViewController3.swift in Sources */,
 				BD1ED9321B870ED70035D46C /* ViewController.swift in Sources */,
+				BD1C38941B8D959C007D9A2F /* ParallaxViewProxy.swift in Sources */,
 				BD1ED9511B870F9E0035D46C /* PagedScrollView.swift in Sources */,
 				BD1ED9301B870ED70035D46C /* AppDelegate.swift in Sources */,
+				BD1C388E1B8D82F9007D9A2F /* PagedParallaxScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
