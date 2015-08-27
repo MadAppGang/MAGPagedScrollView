@@ -1,6 +1,13 @@
 # MAGPagedScrollView 
 MAGPagedScrollView is collection of some scroll classes that orginise views and view controllers as horizontall scroll flow
 
+- 100% Swift (are you still developing with Objective-C ?)
+- reuse behavior as UITabelView (memory efficient)
+- easy to use (2 minutes to implement basic app)
+- support and bug fixing (we are using this component in our products)
+
+Please send us link to your apps, and w ewill create app gallery.
+
 Here is video demo:
 
 [![youtube](http://img.youtube.com/vi/HgSKxQVIOq0/0.jpg)](http://www.youtube.com/watch?v=HgSKxQVIOq0)
