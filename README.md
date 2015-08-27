@@ -5,7 +5,12 @@ Here is video demo:
 
 [![youtube](http://img.youtube.com/vi/HgSKxQVIOq0/0.jpg)](http://www.youtube.com/watch?v=HgSKxQVIOq0)
 
+### Installation
 
+add this line to Podfile:
+```
+    pod 'MAGPagedScrollView'
+```
 
 ## PagedScrollView
 Subclass of UIScrollVeiw, that will orginise it's subviews as scrolled cards.
@@ -104,18 +109,44 @@ scrollView.transition = .Cards
 ```
 
 
+## PagedReusableScrollView
+That class works a UITabelViewController, it reuse **ViewProvider**. So you have to implement **PagedReusableScrollViewDataSource** protocol. This class owns  the ViewProvider objects and provide two functions for reuse:
 
-UIScrollView that works as container for other ViewControllers
+```swift
+    func dequeueReusableView(#tag:Int) -> ViewProvider?
+    func dequeueReusableView(#viewClass:AnyClass) -> ViewProvider? 
+```
 
-[![ScreenShot](resources/MAGPagedScrollViewDemo.gif)](https://raw.githubusercontent.com/MadAppGang/MAGPagedScrollView/master/resources/MAGPagedScrollViewDemo.mov)
+so **ViewProvider** could be reused by tag or class
 
-### YouTube:
-[![youtube](http://img.youtube.com/vi/4xZoOypS128/0.jpg)](http://www.youtube.com/watch?v=4xZoOypS128)
+**PagedReusableScrollViewDataSource** require that functions:
 
+```swift
+    func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider
+    func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int
+```
 
-### Installation
+so putting all together, the example implementation could be like that:
 
-add this line to Podfile:
+```swift
+extension ViewController3: PagedReusableScrollViewDataSource {
+    
+    func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider {
+        var newView:SimpleCardViewController? = scrollView.dequeueReusableView(tag:  1 ) as? SimpleCardViewController
+        if newView == nil {
+            newView =  SimpleCardViewController()
+        }
+        newView?.imageName = "photo\(index%5).jpg"
+        return newView!
+    }
+    
+    func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int {
+        return 10
+    }
+    
+}
+```
 
-    pod 'MAGPagedScrollView'
+the result will be like that:
 
+![ScreenShot](resources/ReusableDemo.gif)
