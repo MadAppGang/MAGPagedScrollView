@@ -11,11 +11,17 @@ import UIKit
 @objc protocol PagedReusableScrollViewDataSource {
     func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider
     func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int
+    
+    optional func scrollView(#scrollView: PagedReusableScrollView, willShowView view:ViewProvider)
+    optional func scrollView(#scrollView: PagedReusableScrollView, willHideView view:ViewProvider)
+    optional func scrollView(#scrollView: PagedReusableScrollView, didShowView view:ViewProvider)
+    optional func scrollView(#scrollView: PagedReusableScrollView, didHideView view:ViewProvider)
+
 }
 
 class PagedReusableScrollView: PagedScrollView {
     
-    @IBOutlet var dataSource:PagedReusableScrollViewDataSource! {
+    @IBOutlet weak var dataSource:PagedReusableScrollViewDataSource! {
         didSet {
             reload()
         }
@@ -76,6 +82,7 @@ class PagedReusableScrollView: PagedScrollView {
         for (index, view) in enumerate(dirtyViews) {
             if view.view.tag == tag {
                 dirtyViews.removeAtIndex(index)
+                view.prepareForReuse?()
                 return view
             }
         }
@@ -86,6 +93,7 @@ class PagedReusableScrollView: PagedScrollView {
         for (index, view) in enumerate(dirtyViews) {
             if view.view.isKindOfClass(viewClass) {
                 dirtyViews.removeAtIndex(index)
+                view.prepareForReuse?()
                 return view
             }
         }
@@ -130,7 +138,9 @@ class PagedReusableScrollView: PagedScrollView {
     
     private func makeViewDirty(#index:Int) {
         if let view = activeViews[index] {
+            dataSource?.scrollView?(scrollView: self, willHideView: view)
             view.view.removeFromSuperview()
+            dataSource?.scrollView?(scrollView: self, didHideView: view)
             view.view.layer.transform = CATransform3DIdentity
             dirtyViews.append(view)
             activeViews.removeValueForKey(index)
@@ -147,14 +157,20 @@ class PagedReusableScrollView: PagedScrollView {
             var x:CGFloat = CGFloat(index) * width
             view.view.frame = CGRectMake(x, 0, width, height)
             view.view.clipsToBounds = true
+            dataSource?.scrollView?(scrollView: self, willShowView: view)
             addSubview(view.view)
+            dataSource?.scrollView?(scrollView: self, didShowView: view)
             view.view.layer.transform = CATransform3DIdentity
             activeViews[index] = view
         }
     }
     
     private func clearAllViews () {
-        for (_ , value) in activeViews { value.view.removeFromSuperview() }
+        for (_ , value) in activeViews {
+            dataSource?.scrollView?(scrollView: self, willHideView: value)
+            value.view.removeFromSuperview()
+            dataSource?.scrollView?(scrollView: self, didHideView: value)
+        }
         activeViews = [:]
         dirtyViews = []
         viewsCount = nil

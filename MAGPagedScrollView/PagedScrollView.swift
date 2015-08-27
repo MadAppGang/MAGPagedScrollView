@@ -18,7 +18,15 @@ enum PagedScrollViewTransitionType {
 }
 
 @objc protocol ViewProvider {
+    
+    /// View Provider should return the view to display
     var view: UIView! { get }
+    
+    /**
+    Send to ViewProver, when reuse, to reset state
+    */
+    optional func prepareForReuse()
+    
 }
 
 
@@ -173,4 +181,6 @@ extension UIView: ViewProvider {
     var view: UIView! { return self }
 }
 
+
+// MARK: - UIViewController as View Provider
 extension UIViewController: ViewProvider { }

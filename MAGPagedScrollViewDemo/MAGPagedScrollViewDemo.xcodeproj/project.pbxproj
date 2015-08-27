@@ -24,6 +24,7 @@
 		BD7AA0011B88BBDE00953466 /* SimpleCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A9FFF1B88BBDE00953466 /* SimpleCardViewController.swift */; };
 		BD7AA0021B88BBDE00953466 /* SimpleCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7AA0001B88BBDE00953466 /* SimpleCardViewController.xib */; };
 		BDEEA4651B87771000D50545 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEEA4641B87771000D50545 /* ViewController2.swift */; };
+		BDFC7F911B8F572900743C98 /* PagedScrollViewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFC7F901B8F572900743C98 /* PagedScrollViewContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		BD7A9FFF1B88BBDE00953466 /* SimpleCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCardViewController.swift; sourceTree = "<group>"; };
 		BD7AA0001B88BBDE00953466 /* SimpleCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleCardViewController.xib; sourceTree = "<group>"; };
 		BDEEA4641B87771000D50545 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		BDFC7F901B8F572900743C98 /* PagedScrollViewContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedScrollViewContainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				BD1ED9521B873AAD0035D46C /* PagedReusableScrollView.swift */,
 				BD1C388D1B8D82F9007D9A2F /* PagedParallaxScrollView.swift */,
 				BD1C38931B8D959C007D9A2F /* ParallaxViewProxy.swift */,
+				BDFC7F901B8F572900743C98 /* PagedScrollViewContainerViewController.swift */,
 			);
 			name = PagedScrollView;
 			path = ../../MAGPagedScrollView;
@@ -264,6 +267,7 @@
 				BD7A9FFE1B88BB7100953466 /* ViewController3.swift in Sources */,
 				BD1ED9321B870ED70035D46C /* ViewController.swift in Sources */,
 				BD1C38941B8D959C007D9A2F /* ParallaxViewProxy.swift in Sources */,
+				BDFC7F911B8F572900743C98 /* PagedScrollViewContainerViewController.swift in Sources */,
 				BD1ED9511B870F9E0035D46C /* PagedScrollView.swift in Sources */,
 				BD1ED9301B870ED70035D46C /* AppDelegate.swift in Sources */,
 				BD1C388E1B8D82F9007D9A2F /* PagedParallaxScrollView.swift in Sources */,

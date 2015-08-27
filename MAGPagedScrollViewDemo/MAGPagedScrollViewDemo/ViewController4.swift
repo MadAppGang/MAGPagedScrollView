@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController4: UIViewController {
+class ViewController4: PagedScrollViewContainerViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class ViewController4: UIViewController {
 
 extension ViewController4: PagedReusableScrollViewDataSource {
     
-    func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider {
+    override func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider {
         var newView:ParralaxCardViewController? = scrollView.dequeueReusableView(tag:  1 ) as? ParralaxCardViewController
         if newView == nil {
             newView =  ParralaxCardViewController()
@@ -55,7 +55,7 @@ extension ViewController4: PagedReusableScrollViewDataSource {
         return newView!
     }
     
-    func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int {
+    override func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int {
         return 15
     }
     
