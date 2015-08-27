@@ -5,22 +5,28 @@ Here is video demo:
 
 [![youtube](http://img.youtube.com/vi/HgSKxQVIOq0/0.jpg)](http://www.youtube.com/watch?v=HgSKxQVIOq0)
 
+### Installation
 
+add this line to Podfile:
+```
+    pod 'MAGPagedScrollView'
+```
 
 ## PagedScrollView
 Subclass of UIScrollVeiw, that will orginise it's subviews as scrolled cards.
+And it's base class for other guys as well: **PagedReusableScrollView** and **PagedParallaxScrollView**.
 
 the result looks like that:
 
 ![ScreenShot](resources/Basic\ Cards.gif)
 
-to do it, just use  function:
+to do it, just use this function:
 
 ```swift
     func addSubviews(aSubviews: [ViewProvider])
 ```
 
-here is example of code that demonstrate, how to do it:
+and add couple lines of code, here is example of code that demonstrate, how to do it:
 
 ```swift
 
@@ -58,25 +64,89 @@ so **ViewProvider** is the class that can provide view. **UIViewController** is 
 
 > Keep in mind, **PagedScrollView** don't keep reference to ViewProviders, so you have to handle ownership of this objects by yourself. But the views, that were provided by ViewProviders will be added as subview, so they will be reverenced by **PagedScrollView**
 
+## Transition
+
+You can use 5 build in transform classes for views sliding
+
+### None
+
+![ScreenShot](resources/Basic\ Cards.gif)
+
+```swift
+scrollView.transition = .None
+```
+
+### Slide
+
+![ScreenShot](resources/SlideDemo.gif)
+
+```swift
+scrollView.transition = .Slide
+```
+
+### Dive
+
+![ScreenShot](resources/DiveDemo.gif)
+
+```swift
+scrollView.transition = .Dive
+```
+
+### Roll
+
+![ScreenShot](resources/RollDemo.gif)
+
+```swift
+scrollView.transition = .Roll
+```
+
+### Cards
+
+![ScreenShot](resources/CardsDemo.gif)
+
+```swift
+scrollView.transition = .Cards
+```
 
 
+## PagedReusableScrollView
+That class works a UITabelViewController, it reuse **ViewProvider**. So you have to implement **PagedReusableScrollViewDataSource** protocol. This class owns  the ViewProvider objects and provide two functions for reuse:
 
+```swift
+    func dequeueReusableView(#tag:Int) -> ViewProvider?
+    func dequeueReusableView(#viewClass:AnyClass) -> ViewProvider? 
+```
 
+so **ViewProvider** could be reused by tag or class
 
+**PagedReusableScrollViewDataSource** require that functions:
 
+```swift
+    func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider
+    func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int
+```
 
+so putting all together, the example implementation could be like that:
 
-UIScrollView that works as container for other ViewControllers
+```swift
+extension ViewController3: PagedReusableScrollViewDataSource {
+    
+    func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider {
+        var newView:SimpleCardViewController? = scrollView.dequeueReusableView(tag:  1 ) as? SimpleCardViewController
+        if newView == nil {
+            newView =  SimpleCardViewController()
+        }
+        newView?.imageName = "photo\(index%5).jpg"
+        return newView!
+    }
+    
+    func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int {
+        return 10
+    }
+    
+}
+```
 
-[![ScreenShot](resources/MAGPagedScrollViewDemo.gif)](https://raw.githubusercontent.com/MadAppGang/MAGPagedScrollView/master/resources/MAGPagedScrollViewDemo.mov)
+the result will be like that:
 
-### YouTube:
-[![youtube](http://img.youtube.com/vi/4xZoOypS128/0.jpg)](http://www.youtube.com/watch?v=4xZoOypS128)
-
-
-### Installation
-
-add this line to Podfile:
-
-    pod 'MAGPagedScrollView'
-
+![ScreenShot](resources/ReusableDemo.gif)
