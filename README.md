@@ -1,6 +1,12 @@
 # MAGPagedScrollView 
 MAGPagedScrollView is collection of some scroll classes that orginise views and view controllers as horizontall scroll flow
 
+Here is video demo:
+
+[![youtube](http://img.youtube.com/vi/HgSKxQVIOq0/0.jpg)](http://www.youtube.com/watch?v=HgSKxQVIOq0)
+
+
+
 ## PagedScrollView
 Subclass of UIScrollVeiw, that will orginise it's subviews as scrolled cards.
 
@@ -38,6 +44,19 @@ here is example of code that demonstrate, how to do it:
     }
 
 ```
+
+So the **PagedScrollView** operate with **ViewProvider** :
+
+```swift
+@objc protocol ViewProvider {
+    var view: UIView! { get }
+}
+```
+
+so **ViewProvider** is the class that can provide view. **UIViewController** is already could be used, providing it's own view.
+**UIView** itself is also a **ViewProvider**, providing itself.
+
+> Keep in mind, **PagedScrollView** don't keep reference to ViewProviders, so you have to handle ownership of this objects by yourself. But the views, that were provided by ViewProviders will be added as subview, so they will be reverenced by **PagedScrollView**
 
 
 
