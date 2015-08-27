@@ -191,6 +191,42 @@ and result of that:
 
 ![ScreenShot](resources/ParallaxDemo.gif)
 
+## Using ViewController as ViewProvider
+So anyone could be ViewProvider, but if you are using **UIViewController** subclass as **ViewProvider** you are expecting to have all View Controller lifecycle works as expected and described in apple doc:
+
+
+[![lyfecycle](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Art/UIViewController%20Class%20Reference_2x.png)](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/index.html)
+
+
+And expecting to get rotation callback for your child view controllers, for example handling it in iOS8+ :
+```swift
+func viewWillTransitionToSize(_ size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+```
+To implement it, regarding [Aplle Doc](https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/CreatingCustomContainerViewControllers/CreatingCustomContainerViewControllers.html), we have to implement some logic in our container view controller (example from Apple Doc):
+
+```Objective-C
+- (void) displayContentController: (UIViewController*) content;
+{
+   [self addChildViewController:content];                 // 1
+   content.view.frame = [self frameForContentController]; // 2
+   [self.view addSubview:self.currentClientView];
+   [content didMoveToParentViewController:self];          // 3
+}
+```
+The issue is that PagesScrollView is not a view controller and could not be container. Moreover, the view don't have reference to it's view controller, so you have to do it by yourself.
+Fortunately, all you need is just inherit the ViewController, that owns PagedScrollView from **PagedScrollViewContainerViewController** :
+```swift
+class ViewController4: PagedScrollViewContainerViewController {
+...
+```
+And it will implement optional functions to handle it. So all your child ViewControllers will behave as expected, getting all lifecysle messages like **viewWillAppear** and **viewWillDisappear** and rotation messages.
+You can check it in source code in **ParralaxCardViewController**:
+```swift
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        println("\(self) viewWillTransitionToSize: \(size)  with coordinator: \(coordinator)")
+    }
+```
+
 ## Custom Transition
 
 You can assign *customTransition* property to any transofrmation. The transformation is described by **PagedScrollViewTransitionProperties** struct:
