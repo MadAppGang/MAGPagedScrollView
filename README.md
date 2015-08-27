@@ -1,4 +1,11 @@
-# MAGPagedScrollView
+# MAGPagedScrollView is collection of some scroll classes
+
+## PagedScrollView
+Subclass if UIScrollVeiw, that will orginise it's subviews as scrolled cards.
+
+
+
+
 UIScrollView that works as container for other ViewControllers
 
 [![ScreenShot](resources/MAGPagedScrollViewDemo.gif)](https://raw.githubusercontent.com/MadAppGang/MAGPagedScrollView/master/resources/MAGPagedScrollViewDemo.mov)
