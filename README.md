@@ -67,20 +67,41 @@ You can use 5 build in transform classes for views sliding
 
 ![ScreenShot](resources/Basic\ Cards.gif)
 
+```swift
+scrollView.transform = .None
+```
+
 ### Slide
 
 ![ScreenShot](resources/SlideDemo.gif)
+
+```swift
+scrollView.transform = .Slide
+```
 
 ### Dive
 
 ![ScreenShot](resources/DiveDemo.gif)
 
+```swift
+scrollView.transform = .Dive
+```
+
 ### Roll
 
+![ScreenShot](resources/RollDemo.gif)
 
-### Card
+```swift
+scrollView.transform = .Roll
+```
 
+### Cards
 
+![ScreenShot](resources/CardsDemo.gif)
+
+```swift
+scrollView.transform = .Cards
+```
 
 UIScrollView that works as container for other ViewControllers
 
