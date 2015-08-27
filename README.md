@@ -59,7 +59,7 @@ so **ViewProvider** is the class that can provide view. **UIViewController** is 
 
 > Keep in mind, **PagedScrollView** don't keep reference to ViewProviders, so you have to handle ownership of this objects by yourself. But the views, that were provided by ViewProviders will be added as subview, so they will be reverenced by **PagedScrollView**
 
-## Transformation
+## Transition
 
 You can use 5 build in transform classes for views sliding
 
@@ -68,7 +68,7 @@ You can use 5 build in transform classes for views sliding
 ![ScreenShot](resources/Basic\ Cards.gif)
 
 ```swift
-scrollView.transform = .None
+scrollView.transition = .None
 ```
 
 ### Slide
@@ -76,7 +76,7 @@ scrollView.transform = .None
 ![ScreenShot](resources/SlideDemo.gif)
 
 ```swift
-scrollView.transform = .Slide
+scrollView.transition = .Slide
 ```
 
 ### Dive
@@ -84,7 +84,7 @@ scrollView.transform = .Slide
 ![ScreenShot](resources/DiveDemo.gif)
 
 ```swift
-scrollView.transform = .Dive
+scrollView.transition = .Dive
 ```
 
 ### Roll
@@ -92,7 +92,7 @@ scrollView.transform = .Dive
 ![ScreenShot](resources/RollDemo.gif)
 
 ```swift
-scrollView.transform = .Roll
+scrollView.transition = .Roll
 ```
 
 ### Cards
@@ -100,8 +100,10 @@ scrollView.transform = .Roll
 ![ScreenShot](resources/CardsDemo.gif)
 
 ```swift
-scrollView.transform = .Cards
+scrollView.transition = .Cards
 ```
+
+
 
 UIScrollView that works as container for other ViewControllers
 
