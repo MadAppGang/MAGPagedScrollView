@@ -9,18 +9,19 @@ Here is video demo:
 
 ## PagedScrollView
 Subclass of UIScrollVeiw, that will orginise it's subviews as scrolled cards.
+And it's base class for other guys as well: **PagedReusableScrollView** and **PagedParallaxScrollView**.
 
 the result looks like that:
 
 ![ScreenShot](resources/Basic\ Cards.gif)
 
-to do it, just use  function:
+to do it, just use this function:
 
 ```swift
     func addSubviews(aSubviews: [ViewProvider])
 ```
 
-here is example of code that demonstrate, how to do it:
+and add couple lines of code, here is example of code that demonstrate, how to do it:
 
 ```swift
 
@@ -58,11 +59,26 @@ so **ViewProvider** is the class that can provide view. **UIViewController** is 
 
 > Keep in mind, **PagedScrollView** don't keep reference to ViewProviders, so you have to handle ownership of this objects by yourself. But the views, that were provided by ViewProviders will be added as subview, so they will be reverenced by **PagedScrollView**
 
+## Transformation
+
+You can use 5 build in transform classes for views sliding
+
+### None
+
+![ScreenShot](resources/Basic\ Cards.gif)
+
+### Slide
+
+![ScreenShot](resources/SlideDemo.gif)
+
+### Dive
+
+![ScreenShot](resources/DiveDemo.gif)
+
+### Roll
 
 
-
-
-
+### Card
 
 
 
