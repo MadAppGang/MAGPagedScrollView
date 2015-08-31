@@ -9,9 +9,9 @@
 import UIKit
 
 
-@objc protocol PagedScrollViewParallaxView: class {
+@objc public protocol PagedScrollViewParallaxView: class {
     //parallax from -100 to 100. 0 is central position.
-    func parallaxProgressChanged(progress:Int)
+     func parallaxProgressChanged(progress:Int)
 }
 
 public class PagedParallaxScrollView: PagedReusableScrollView {

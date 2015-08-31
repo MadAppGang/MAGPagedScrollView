@@ -17,10 +17,10 @@ public enum PagedScrollViewTransitionType {
     case Custom
 }
 
-@objc protocol ViewProvider {
+@objc public protocol ViewProvider {
     
     /// View Provider should return the view to display
-    var view: UIView! { get }
+     var view: UIView! { get }
     
     /**
     Send to ViewProver, when reuse, to reset state
@@ -34,19 +34,19 @@ public enum PagedScrollViewTransitionType {
 public class PagedScrollView: UIScrollView {
     
     /// Transition type
-    var transition: PagedScrollViewTransitionType = .None {
+    public var transition: PagedScrollViewTransitionType = .None {
         didSet {
             setNeedsLayout()
         }
     }
     /// currentPage Number
-    var pageNumber:Int   {
+    public var pageNumber:Int   {
         let pageWidth = CGRectGetWidth(self.frame)
         let factionalPage = self.contentOffset.x / pageWidth
         return lround(Double(factionalPage))
     }
     /// Custom transition
-    var customTransition = PagedScrollViewTransitionProperties()
+    public var customTransition = PagedScrollViewTransitionProperties()
     
     private var transitionProperties:[PagedScrollViewTransitionType:PagedScrollViewTransitionProperties]!
     
@@ -60,7 +60,7 @@ public class PagedScrollView: UIScrollView {
         commonInit()
     }
     
-    func commonInit() {
+    public func commonInit() {
         pagingEnabled = true
         clipsToBounds = false
         showsHorizontalScrollIndicator = false
@@ -77,7 +77,7 @@ public class PagedScrollView: UIScrollView {
     }
 
     
-    func addSubviews(aSubviews: [ViewProvider]) {
+    public func addSubviews(aSubviews: [ViewProvider]) {
         let frameI = UIEdgeInsetsInsetRect(frame, contentInset)
         let width = CGRectGetWidth(frameI)
         let height = CGRectGetHeight(frameI)
@@ -93,15 +93,15 @@ public class PagedScrollView: UIScrollView {
         contentSize = CGSizeMake(x, height)
     }
     
-    func goNext() {
+    public func goNext() {
         self.goToPage(self.pageNumber + 1, animated: true)
     }
     
-    func goPrevious() {
+    public func goPrevious() {
         self.goToPage(self.pageNumber - 1, animated: true)
     }
     
-    func goToPage(page:Int, animated:Bool) {
+    public func goToPage(page:Int, animated:Bool) {
         var newFrame = frame
         let newX = frame.size.width * CGFloat(page)
         newFrame.origin = CGPoint(x:newX, y:0.0)
@@ -133,7 +133,7 @@ public class PagedScrollView: UIScrollView {
         }
     }
     
-    func viewsOnScreen() -> [UIView] {
+    public func viewsOnScreen() -> [UIView] {
         var result = [UIView]()
         let page = pageNumber
         if pageNumber > 0 && (pageNumber-1) < subviews.count {
@@ -178,7 +178,7 @@ extension CGFloat {
 }
 
 extension UIView: ViewProvider {
-    var view: UIView! { return self }
+    public var view: UIView! { return self }
 }
 
 

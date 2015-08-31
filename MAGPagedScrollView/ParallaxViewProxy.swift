@@ -11,9 +11,9 @@ import UIKit
 public class ParallaxViewProxy: UIView, PagedScrollViewParallaxView {
 
 
-    @IBOutlet weak var parallaxController:PagedScrollViewParallaxView? = nil
+    @IBOutlet public weak var parallaxController:PagedScrollViewParallaxView? = nil
     
-    func parallaxProgressChanged(progress:Int) {
+    public func parallaxProgressChanged(progress:Int) {
         if let pc = parallaxController {
             pc.parallaxProgressChanged(progress)
         }

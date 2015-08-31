@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol PagedReusableScrollViewDataSource {
+@objc public protocol PagedReusableScrollViewDataSource {
     func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider
     func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int
     
@@ -21,7 +21,7 @@ import UIKit
 
 public class PagedReusableScrollView: PagedScrollView {
     
-    @IBOutlet weak var dataSource:PagedReusableScrollViewDataSource! {
+    @IBOutlet public weak var dataSource:PagedReusableScrollViewDataSource! {
         didSet {
             reload()
         }
@@ -40,7 +40,7 @@ public class PagedReusableScrollView: PagedScrollView {
     }
 
     
-    func reload() {
+    public func reload() {
         clearAllViews()
         if let ds = dataSource {
             viewsCount = ds.numberOfViews(forScrollView: self)
@@ -51,7 +51,7 @@ public class PagedReusableScrollView: PagedScrollView {
     }
     
 
-    var visibleIndexes:[Int] {
+    public var visibleIndexes:[Int] {
         if let viewsCount = viewsCount {
             var result = [Int]()
             let page = pageNumber
@@ -73,12 +73,12 @@ public class PagedReusableScrollView: PagedScrollView {
         }
     }
     
-    override func viewsOnScreen() -> [UIView] {
+    override public func viewsOnScreen() -> [UIView] {
         return visibleIndexes.sorted{ $0 > $1 }.map{ self.activeViews[$0]!.view }
     }
 
     
-    func dequeueReusableView(#tag:Int) -> ViewProvider? {
+    public func dequeueReusableView(#tag:Int) -> ViewProvider? {
         for (index, view) in enumerate(dirtyViews) {
             if view.view.tag == tag {
                 dirtyViews.removeAtIndex(index)
@@ -89,7 +89,7 @@ public class PagedReusableScrollView: PagedScrollView {
         return nil
     }
     
-    func dequeueReusableView(#viewClass:AnyClass) -> ViewProvider? {
+    public func dequeueReusableView(#viewClass:AnyClass) -> ViewProvider? {
         for (index, view) in enumerate(dirtyViews) {
             if view.view.isKindOfClass(viewClass) {
                 dirtyViews.removeAtIndex(index)
@@ -109,7 +109,7 @@ public class PagedReusableScrollView: PagedScrollView {
     }
     
     //MARK: private data
-    private(set) var activeViews:[Int:ViewProvider] = [:]
+    private(set) public var activeViews:[Int:ViewProvider] = [:]
     private var dirtyViews:[ViewProvider] = []
     private var viewsCount:Int?
     private var itemSize:CGSize = CGSizeZero

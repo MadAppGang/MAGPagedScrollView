@@ -28,36 +28,36 @@ public class PagedScrollViewContainerViewController: UIViewController, PagedReus
     
 
     // MARK: - PagedReusableScrollViewDataSource
-    func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider {
+    public func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider {
         assertionFailure("have to be implemented in subclass")
         //just have to return something
         return self
     }
     
-    func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int {
+    public func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int {
         assertionFailure("have to be implemented in subclass")
         return 0
     }
     
-    func scrollView(#scrollView: PagedReusableScrollView, willShowView view:ViewProvider) {
+    public func scrollView(#scrollView: PagedReusableScrollView, willShowView view:ViewProvider) {
         if let vc = view as? UIViewController {
             self.addChildViewController(vc)
         }
     }
     
-    func scrollView(#scrollView: PagedReusableScrollView, willHideView view:ViewProvider) {
+    public func scrollView(#scrollView: PagedReusableScrollView, willHideView view:ViewProvider) {
         if let vc = view as? UIViewController {
             vc.willMoveToParentViewController(nil)
         }
     }
     
-    func scrollView(#scrollView: PagedReusableScrollView, didShowView view:ViewProvider) {
+    public func scrollView(#scrollView: PagedReusableScrollView, didShowView view:ViewProvider) {
         if let vc = view as? UIViewController {
             vc.didMoveToParentViewController(self)
         }
     }
     
-    func scrollView(#scrollView: PagedReusableScrollView, didHideView view:ViewProvider) {
+    public func scrollView(#scrollView: PagedReusableScrollView, didHideView view:ViewProvider) {
         if let vc = view as? UIViewController {
             vc.removeFromParentViewController()
         }
