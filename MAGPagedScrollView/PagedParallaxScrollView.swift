@@ -14,9 +14,9 @@ import UIKit
     func parallaxProgressChanged(progress:Int)
 }
 
-class PagedParallaxScrollView: PagedReusableScrollView {
+public class PagedParallaxScrollView: PagedReusableScrollView {
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         for view in viewsOnScreen() {
             if let parallaxView = view as? PagedScrollViewParallaxView {

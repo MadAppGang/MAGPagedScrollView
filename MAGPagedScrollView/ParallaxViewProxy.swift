@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ParallaxViewProxy: UIView, PagedScrollViewParallaxView {
+public class ParallaxViewProxy: UIView, PagedScrollViewParallaxView {
 
 
     @IBOutlet weak var parallaxController:PagedScrollViewParallaxView? = nil

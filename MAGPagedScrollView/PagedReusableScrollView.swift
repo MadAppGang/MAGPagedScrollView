@@ -19,7 +19,7 @@ import UIKit
 
 }
 
-class PagedReusableScrollView: PagedScrollView {
+public class PagedReusableScrollView: PagedScrollView {
     
     @IBOutlet weak var dataSource:PagedReusableScrollViewDataSource! {
         didSet {
@@ -34,7 +34,7 @@ class PagedReusableScrollView: PagedScrollView {
         reload()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         reload()
     }
@@ -101,7 +101,7 @@ class PagedReusableScrollView: PagedScrollView {
     }
 
   
-    override func didMoveToSuperview() {
+    override public func didMoveToSuperview() {
         super.didMoveToSuperview();
         if superview != nil {
             reload()
@@ -126,7 +126,7 @@ class PagedReusableScrollView: PagedScrollView {
         }
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         if itemSize != UIEdgeInsetsInsetRect(frame, contentInset).size {
             reload()
             return
@@ -156,7 +156,6 @@ class PagedReusableScrollView: PagedScrollView {
             let height = CGRectGetHeight(frameI)
             var x:CGFloat = CGFloat(index) * width
             view.view.frame = CGRectMake(x, 0, width, height)
-            view.view.clipsToBounds = true
             dataSource?.scrollView?(scrollView: self, willShowView: view)
             addSubview(view.view)
             dataSource?.scrollView?(scrollView: self, didShowView: view)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum PagedScrollViewTransitionType {
+public enum PagedScrollViewTransitionType {
     case None
     case Slide
     case Dive
@@ -31,7 +31,7 @@ enum PagedScrollViewTransitionType {
 
 
 
-class PagedScrollView: UIScrollView {
+public class PagedScrollView: UIScrollView {
     
     /// Transition type
     var transition: PagedScrollViewTransitionType = .None {
@@ -55,7 +55,7 @@ class PagedScrollView: UIScrollView {
         commonInit()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
@@ -108,7 +108,7 @@ class PagedScrollView: UIScrollView {
         scrollRectToVisible(newFrame, animated: animated)
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
 
         let tr = transition == .Custom ? customTransition : transitionProperties[transition]!
@@ -153,13 +153,13 @@ class PagedScrollView: UIScrollView {
     
 }
 
-struct PagedScrollViewTransitionProperties {
+public struct PagedScrollViewTransitionProperties {
     var angleRatio:     CGFloat = 0.0
     var translation:    CGVector = CGVector(dx:0.0, dy:0.0)
     var rotation:       Rotation3D = Rotation3D()
 }
 
-struct Rotation3D {
+public struct Rotation3D {
     var x:CGFloat = 0.0
     var y:CGFloat = 0.0
     var z:CGFloat = 0.0
