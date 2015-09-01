@@ -16,6 +16,8 @@ and real life example of onboarding screens:
 
 [![youtube](http://img.youtube.com/vi/q18RqlyTpak/0.jpg)](http://www.youtube.com/watch?v=q18RqlyTpak)
 
+[![youtube](http://img.youtube.com/vi/GzpCboLTPqc/0.jpg)](http://www.youtube.com/watch?v=GzpCboLTPqc)
+
 ### Installation
 
 add this line to Podfile:
