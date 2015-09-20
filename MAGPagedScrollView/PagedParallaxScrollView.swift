@@ -9,7 +9,7 @@
 import UIKit
 
 
-@objc public protocol PagedScrollViewParallaxView: class {
+@objc public protocol PagedScrollViewParallaxDelegate: class {
     //parallax from -100 to 100. 0 is central position.
      func parallaxProgressChanged(progress:Int)
 }
@@ -19,7 +19,7 @@ public class PagedParallaxScrollView: PagedReusableScrollView {
     override public func layoutSubviews() {
         super.layoutSubviews()
         for view in viewsOnScreen() {
-            if let parallaxView = view as? PagedScrollViewParallaxView {
+            if let parallaxView = view as? PagedScrollViewParallaxDelegate {
                 let oldTransform = view.layer.transform
                 view.layer.transform = CATransform3DIdentity
                 let centerDX = Int((view.frame.origin.x - contentOffset.x) * 100 / CGRectGetWidth(frame))

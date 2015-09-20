@@ -58,7 +58,7 @@ class ParralaxCardViewController: UIViewController {
 }
 
 
-extension ParralaxCardViewController: PagedScrollViewParallaxView {
+extension ParralaxCardViewController: PagedScrollViewParallaxDelegate {
     
     func parallaxProgressChanged(progress:Int) {
         self.imageView.bounds = CGRectMake(CGFloat(progress), 0, imageView.bounds.size.width, imageView.bounds.size.height)

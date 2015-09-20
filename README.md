@@ -12,6 +12,12 @@ Here is video demo:
 
 [![youtube](http://img.youtube.com/vi/HgSKxQVIOq0/0.jpg)](http://www.youtube.com/watch?v=HgSKxQVIOq0)
 
+and real life example of onboarding screens:
+
+[![youtube](http://img.youtube.com/vi/q18RqlyTpak/0.jpg)](http://www.youtube.com/watch?v=q18RqlyTpak)
+
+[![youtube](http://img.youtube.com/vi/GzpCboLTPqc/0.jpg)](http://www.youtube.com/watch?v=GzpCboLTPqc)
+
 ### Installation
 
 add this line to Podfile:
@@ -269,4 +275,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/MadAppGang/magpagedscrollview/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
