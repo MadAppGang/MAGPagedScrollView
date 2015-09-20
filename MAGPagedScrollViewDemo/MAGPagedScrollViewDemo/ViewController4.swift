@@ -44,7 +44,7 @@ class ViewController4: PagedScrollViewContainerViewController {
 }
 
 
-extension ViewController4: PagedReusableScrollViewDataSource {
+extension ViewController4 {
     
     override func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider {
         var newView:ParralaxCardViewController? = scrollView.dequeueReusableView(tag:  1 ) as? ParralaxCardViewController

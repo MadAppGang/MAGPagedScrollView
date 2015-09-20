@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     }
     
     func createView(color: Int) -> UIView {
-        var view = UIView(frame: CGRectMake(0, 0, 100, 100))
+        let view = UIView(frame: CGRectMake(0, 0, 100, 100))
         view.backgroundColor = colors[color]
         view.layer.cornerRadius = 10.0
         return view
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         
         let x = CGFloat(scrollView.subviews.count) * width
 
-        var view = UIView(frame: CGRectMake(x, 0, width, height))
+        let view = UIView(frame: CGRectMake(x, 0, width, height))
         view.backgroundColor = colors[color]
         
         view.layer.cornerRadius = 10.0

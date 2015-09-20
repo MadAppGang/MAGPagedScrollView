@@ -12,10 +12,10 @@ import UIKit
     func scrollView(scrollView: PagedReusableScrollView, viewIndex index: Int) -> ViewProvider
     func numberOfViews(forScrollView scrollView: PagedReusableScrollView) -> Int
     
-    optional func scrollView(#scrollView: PagedReusableScrollView, willShowView view:ViewProvider)
-    optional func scrollView(#scrollView: PagedReusableScrollView, willHideView view:ViewProvider)
-    optional func scrollView(#scrollView: PagedReusableScrollView, didShowView view:ViewProvider)
-    optional func scrollView(#scrollView: PagedReusableScrollView, didHideView view:ViewProvider)
+    optional func scrollView(scrollView scrollView: PagedReusableScrollView, willShowView view:ViewProvider)
+    optional func scrollView(scrollView scrollView: PagedReusableScrollView, willHideView view:ViewProvider)
+    optional func scrollView(scrollView scrollView: PagedReusableScrollView, didShowView view:ViewProvider)
+    optional func scrollView(scrollView scrollView: PagedReusableScrollView, didHideView view:ViewProvider)
 
 }
 
@@ -34,7 +34,7 @@ public class PagedReusableScrollView: PagedScrollView {
         reload()
     }
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         reload()
     }
@@ -54,7 +54,6 @@ public class PagedReusableScrollView: PagedScrollView {
     public var visibleIndexes:[Int] {
         if let viewsCount = viewsCount {
             var result = [Int]()
-            let page = pageNumber
             //Add previous page
             if pageNumber > 0 && (pageNumber-1) < viewsCount {
                 result.append(pageNumber-1)
@@ -74,12 +73,12 @@ public class PagedReusableScrollView: PagedScrollView {
     }
     
     override public func viewsOnScreen() -> [UIView] {
-        return visibleIndexes.sorted{ $0 > $1 }.map{ self.activeViews[$0]!.view }
+        return visibleIndexes.sort{ $0 > $1 }.map{ self.activeViews[$0]!.view }
     }
 
     
-    public func dequeueReusableView(#tag:Int) -> ViewProvider? {
-        for (index, view) in enumerate(dirtyViews) {
+    public func dequeueReusableView(tag tag:Int) -> ViewProvider? {
+        for (index, view) in dirtyViews.enumerate() {
             if view.view.tag == tag {
                 dirtyViews.removeAtIndex(index)
                 view.prepareForReuse?()
@@ -89,8 +88,8 @@ public class PagedReusableScrollView: PagedScrollView {
         return nil
     }
     
-    public func dequeueReusableView(#viewClass:AnyClass) -> ViewProvider? {
-        for (index, view) in enumerate(dirtyViews) {
+    public func dequeueReusableView(viewClass viewClass:AnyClass) -> ViewProvider? {
+        for (index, view) in dirtyViews.enumerate() {
             if view.view.isKindOfClass(viewClass) {
                 dirtyViews.removeAtIndex(index)
                 view.prepareForReuse?()
@@ -115,13 +114,13 @@ public class PagedReusableScrollView: PagedScrollView {
     private var itemSize:CGSize = CGSizeZero
     
     private func reloadVisisbleViews() {
-        let visibleIdx  = visibleIndexes.sorted{ $0 > $1 }
-        let activeIdx = activeViews.keys.array.sorted{ $0 > $1 }
+        let visibleIdx  = visibleIndexes.sort{ $0 > $1 }
+        let activeIdx = activeViews.keys.sort{ $0 > $1 }
         if visibleIdx != activeIdx {
             //get views to make them dirty
-            activeIdx.substract(visibleIdx).map { self.makeViewDirty(index:$0) }
+            _ = activeIdx.substract(visibleIdx).map { self.makeViewDirty(index:$0) }
             // add new views
-            visibleIdx.substract(activeIdx).map { self.addView(index:$0) }
+            _ = visibleIdx.substract(activeIdx).map { self.addView(index:$0) }
             setNeedsLayout()
         }
     }
@@ -136,7 +135,7 @@ public class PagedReusableScrollView: PagedScrollView {
     }
 
     
-    private func makeViewDirty(#index:Int) {
+    private func makeViewDirty(index index:Int) {
         if let view = activeViews[index] {
             dataSource?.scrollView?(scrollView: self, willHideView: view)
             view.view.removeFromSuperview()
@@ -147,14 +146,14 @@ public class PagedReusableScrollView: PagedScrollView {
         }
     }
     
-    private func addView(#index:Int) {
+    private func addView(index index:Int) {
         
         if let view = dataSource?.scrollView(self, viewIndex: index) {
             view.view.removeFromSuperview()
             let frameI = UIEdgeInsetsInsetRect(frame, contentInset)
             let width = CGRectGetWidth(frameI)
             let height = CGRectGetHeight(frameI)
-            var x:CGFloat = CGFloat(index) * width
+            let x:CGFloat = CGFloat(index) * width
             view.view.frame = CGRectMake(x, 0, width, height)
             dataSource?.scrollView?(scrollView: self, willShowView: view)
             addSubview(view.view)
@@ -182,7 +181,7 @@ public class PagedReusableScrollView: PagedScrollView {
             let frameI = UIEdgeInsetsInsetRect(frame, contentInset)
             let width = CGRectGetWidth(frameI)
             let height = CGRectGetHeight(frameI)
-            var x:CGFloat = CGFloat(viewsCount) * width
+            let x:CGFloat = CGFloat(viewsCount) * width
             contentSize = CGSizeMake(x, height)
             itemSize = frameI.size
         } else {
@@ -204,7 +203,7 @@ extension Array {
                 for value in values {
                     //if our internal element is present in substract array
                     //exclude it from result
-                    if contains(value, element) {
+                    if value.contains(element) {
                         continue elements
                     }
                 }

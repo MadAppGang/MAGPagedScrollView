@@ -52,7 +52,7 @@ class ParralaxCardViewController: UIViewController {
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        println("\(self) viewWillTransitionToSize: \(size)  with coordinator: \(coordinator)")
+        print("\(self) viewWillTransitionToSize: \(size)  with coordinator: \(coordinator)")
     }
 
 }

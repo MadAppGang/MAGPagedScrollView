@@ -39,25 +39,25 @@ public class PagedScrollViewContainerViewController: UIViewController, PagedReus
         return 0
     }
     
-    public func scrollView(#scrollView: PagedReusableScrollView, willShowView view:ViewProvider) {
+    public func scrollView(scrollView scrollView: PagedReusableScrollView, willShowView view:ViewProvider) {
         if let vc = view as? UIViewController {
             self.addChildViewController(vc)
         }
     }
     
-    public func scrollView(#scrollView: PagedReusableScrollView, willHideView view:ViewProvider) {
+    public func scrollView(scrollView scrollView: PagedReusableScrollView, willHideView view:ViewProvider) {
         if let vc = view as? UIViewController {
             vc.willMoveToParentViewController(nil)
         }
     }
     
-    public func scrollView(#scrollView: PagedReusableScrollView, didShowView view:ViewProvider) {
+    public func scrollView(scrollView scrollView: PagedReusableScrollView, didShowView view:ViewProvider) {
         if let vc = view as? UIViewController {
             vc.didMoveToParentViewController(self)
         }
     }
     
-    public func scrollView(#scrollView: PagedReusableScrollView, didHideView view:ViewProvider) {
+    public func scrollView(scrollView scrollView: PagedReusableScrollView, didHideView view:ViewProvider) {
         if let vc = view as? UIViewController {
             vc.removeFromParentViewController()
         }

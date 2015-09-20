@@ -55,7 +55,7 @@ public class PagedScrollView: UIScrollView {
         commonInit()
     }
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
@@ -136,14 +136,14 @@ public class PagedScrollView: UIScrollView {
     public func viewsOnScreen() -> [UIView] {
         var result = [UIView]()
         let page = pageNumber
-        if pageNumber > 0 && (pageNumber-1) < subviews.count {
-            result.append(subviews[pageNumber-1] as! UIView)
+        if page > 0 && (page-1) < subviews.count {
+            result.append(subviews[page-1] )
         }
-        if pageNumber < subviews.count {
-            result.append(subviews[pageNumber] as! UIView)
+        if page < subviews.count {
+            result.append(subviews[page] )
         }
-        if (pageNumber+1) < subviews.count {
-            result.append(subviews[pageNumber+1] as! UIView)
+        if (page+1) < subviews.count {
+            result.append(subviews[page+1] )
         }
         
         
