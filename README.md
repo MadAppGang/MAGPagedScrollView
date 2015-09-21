@@ -1,4 +1,6 @@
-# MAGPagedScrollView 
+# MAGPagedScrollView
+
+Now MAGPagedScrollView supports Swift2. If you want to use Swift 1.2, use tag 0.0.6.
 MAGPagedScrollView is collection of some scroll classes that orginise views and view controllers as horizontall scroll flow
 
 - 100% Swift (are you still developing with Objective-C ?)
